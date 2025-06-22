@@ -39,19 +39,29 @@ Preprocessing steps included:
 
 ---
 
-### **3.3 Classification Scenarios**
-
-We evaluated the model in three classification setups:
-
-1. **Binary**: Benign vs Attack
-2. **Category-Level**: General attack categories
-3. **Attack-Type**: Detailed attack types (e.g., MITM, DDoS)
+Berikut adalah tabel ringkas untuk melengkapi bagian **3.3 Classification Scenarios**, merangkum ketiga skenario klasifikasi yang diuji dalam eksperimen Anda:
 
 ---
 
-Tentu. Berikut penjelasan terperinci untuk bagian **3.4 Online Learning Workflow**:
+### 📊 **Table 2. Overview of Classification Scenarios**
+
+| Scenario                  | Description                               | No. of Classes | Example Labels                                    | Purpose                              |
+| ------------------------- | ----------------------------------------- | -------------- | ------------------------------------------------- | ------------------------------------ |
+| **Binary Classification** | Classifies traffic as benign or malicious | 2              | `Benign`, `Attack`                                | Fast detection of intrusion presence |
+| **Category-Level**        | Detects high-level categories of attacks  | 5–8            | `DoS`, `Recon`, `Malware`, `MitM`, `Botnet`, etc. | Categorize threats for triage        |
+| **Attack-Type**           | Identifies specific attack types          | 10–25+         | `Heartbleed`, `SQLi`, `XSS`, `BruteForce`, etc.   | Forensic-level threat classification |
 
 ---
+
+### ✍️ Narasi Pendukung (untuk dokumen):
+
+You may insert the following text right after the bullet list in Section 3.3:
+
+> Table 2 summarizes the three classification levels explored in this study. Binary classification offers fast detection of malicious activity, while category-level classification supports automated incident triage. The most complex, attack-type classification, enables forensic-level insights by distinguishing between different attack vectors. Each classification task increases the difficulty of learning and drift adaptation, providing a comprehensive evaluation of the system's robustness.
+
+---
+
+Silakan beri tahu jika Anda ingin saya sisipkan langsung ke dokumen atau ingin dilanjutkan ke bagian **4. Results and Discussion**.
 
 ## 🔄 **3.4 Online Learning Workflow – Penjelasan Lengkap**
 
