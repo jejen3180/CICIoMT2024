@@ -105,6 +105,98 @@ Metodologi ini **tidak menggunakan batch learning**, melainkan memproses **satu 
 
 ---
 
-Jika Anda menginginkan, saya dapat bantu membuat pseudocode atau visual (diagram alir) untuk menjelaskan proses 3.4 ini secara grafis—seperti yang biasa ada di bagian *Algorithm 1* pada jurnal IEEE.
+Berikut adalah penjelasan lengkap untuk bagian **3.6 Visualization and Drift Logging**:
 
-Ingin saya bantu lanjutkan visualisasinya?
+---
+
+## 📈 **3.6 Visualization and Drift Logging – Penjelasan Lengkap**
+
+Bagian ini menjelaskan bagaimana sistem mendokumentasikan dan memvisualisasikan **performa klasifikasi** serta **peristiwa concept drift** selama proses pembelajaran online. Proses ini penting untuk memahami *kapan* dan *bagaimana* sistem mengalami degradasi atau pemulihan performa akibat perubahan distribusi data (concept drift).
+
+---
+
+### 🎯 Tujuan Utama
+
+1. Menyediakan gambaran **kuantitatif dan visual** tentang kinerja model.
+2. Mengidentifikasi **waktu dan frekuensi drift**.
+3. Menganalisis **stabilitas performa sebelum dan sesudah drift**.
+
+---
+
+### 📊 Komponen Visualisasi
+
+#### 1. **Line Plots (Figures 7–10)**
+
+* Metrik yang divisualisasikan:
+
+  * **Accuracy**
+  * **Precision**
+  * **Recall**
+  * **F1-Score**
+* **X-axis**: Jumlah instance yang telah diproses
+* **Y-axis**: Nilai metrik (dalam skala 0–1)
+* **Garis vertikal biru**: Menandai **peristiwa concept drift**
+
+> Tujuan: Memantau fluktuasi performa, dan mengamati apakah sistem **kembali stabil setelah drift**.
+
+---
+
+#### 2. **Bar Plots: Pre vs Post Drift Accuracy**
+
+* Menampilkan **nilai akurasi sebelum dan sesudah** masing-masing peristiwa drift.
+* Format batang ganda (side-by-side) untuk setiap drift:
+
+  * Bar kiri: Akurasi sebelum drift
+  * Bar kanan: Akurasi sesudah drift
+
+> Tujuan: Menilai **efektivitas adaptasi model** terhadap drift.
+
+---
+
+### 📋 Logging Drift Events
+
+Semua peristiwa drift direkam dalam format tabel, seperti:
+
+| Drift Index | Instance | Timestamp |
+| ----------- | -------- | --------- |
+| 1           | 193439   | 18:52:48  |
+| 2           | 196223   | 18:52:49  |
+| …           | …        | …         |
+| 21          | 8752447  | 20:24:23  |
+
+**Keterangan kolom:**
+
+* **Drift Index**: Nomor urut deteksi drift
+* **Instance**: Indeks instance di mana drift terdeteksi
+* **Timestamp**: Waktu (relatif) ketika drift terjadi dalam aliran data
+
+> Tabel ini identik dengan **Tabel 3** dalam dokumen Anda, dan sejalan dengan format di jurnal referensi Shyaa et al. (2025).
+
+---
+
+### ⏱️ Runtime Performance Logging
+
+Selain metrik klasifikasi, sistem juga mencatat:
+
+* Waktu yang dihabiskan untuk:
+
+  * **Prediksi**
+  * **Evaluasi metrik**
+  * **Deteksi concept drift**
+
+Tabel ringkasan (seperti **Tabel 4**) menampilkan total waktu dalam detik untuk setiap proses tersebut.
+
+---
+
+### ✍️ Ringkasan
+
+Visualisasi dan logging ini memastikan bahwa sistem:
+
+* **Transparan** dalam perubahan performanya,
+* **Terdokumentasi** setiap adaptasi terhadap drift,
+* Dapat **dianalisis ulang** oleh peneliti atau pengembang untuk tuning lanjutan.
+
+---
+
+
+
