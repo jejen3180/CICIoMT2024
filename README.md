@@ -1,6 +1,3 @@
-Berikut adalah versi lengkap dan telah diperbaiki dari bagian **3. Methodology**, disusun agar **akurat secara ilmiah, konsisten dengan jurnal referensi**, dan siap dipakai dalam publikasi:
-
----
 
 ## **3. Methodology**
 
