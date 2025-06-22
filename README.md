@@ -11,13 +11,7 @@ The proposed IDS architecture consists of a streaming-based learning pipeline wi
 
 * **Classifier**: A Hoeffding Adaptive Tree (HAT), which incrementally builds decision trees and adapts to evolving data distributions. It replaces subtrees when significant changes are detected.
 
-* **Drift Detector**: ADWIN (ADaptive WINdowing), a performance-aware sliding window detector that identifies statistically significant changes in prediction accuracy. It maintains two sub-windows, $W_0$ and $W_1$, and raises a drift alert if:
-
-  $$
-  |\mu_{W_0} - \mu_{W_1}| > \sqrt{\frac{1}{2} \cdot \ln\left(\frac{4}{\delta}\right) \cdot \left( \frac{1}{|W_0|} + \frac{1}{|W_1|} \right)}
-  $$
-
-  where $\mu_{W_0}$ and $\mu_{W_1}$ are the empirical means of the windows, and $\delta$ is the confidence level.
+* **Drift Detector**: ADWIN (ADaptive WINdowing), a performance-aware sliding window detector that identifies statistically significant changes in prediction accuracy. It maintains two sub-windows, $W_0$ and $W_1$
 
 ---
 
