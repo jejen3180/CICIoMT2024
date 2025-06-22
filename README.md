@@ -32,23 +32,13 @@ Preprocessing steps included:
 
 * **Label encoding**: Labels were transformed into integers:
 
-  $$
-  \text{class}_{\text{encoded}} = f(\text{class}_{\text{original}}) \in \mathbb{Z}^+
-  $$
 
 * **Feature normalization**: Each numerical feature $x_j$ was standardized using z-score normalization:
 
-  $$
-  x_j' = \frac{x_j - \mu_j}{\sigma_j}
-  $$
 
   where $\mu_j$ and $\sigma_j$ are the mean and standard deviation.
 
 * **Dictionary conversion**: Each data instance $\mathbf{x}_i$ was converted to dictionary format:
-
-  $$
-  \mathbf{x}_i = \{f_1: x_{i1}, f_2: x_{i2}, \ldots, f_d: x_{id} \}, \quad \forall i \in [1, N]
-  $$
 
 ---
 
