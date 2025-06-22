@@ -33,8 +33,6 @@ Preprocessing steps included:
 
 ---
 
-Berikut adalah tabel ringkas untuk melengkapi bagian **3.3 Classification Scenarios**, merangkum ketiga skenario klasifikasi yang diuji dalam eksperimen Anda:
-
 ---
 
 ### 📊 **Table 2. Overview of Classification Scenarios**
