@@ -18,9 +18,10 @@ The proposed IDS architecture consists of a streaming-based learning pipeline wi
 ### **3.2 Data Source and Preprocessing**
 
 The CICIoMT2024 dataset was selected due to its realistic traffic patterns in IoMT scenarios. It contains benign and multiple classes of attack data.
+https://www.unb.ca/cic/datasets/iomt-dataset-2024.html
 
 Preprocessing steps included:
-https://www.unb.ca/cic/datasets/iomt-dataset-2024.html
+
 
 * **Label encoding**: Labels were transformed into integers:
 
