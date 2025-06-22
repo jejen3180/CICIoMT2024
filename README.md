@@ -48,3 +48,59 @@ We evaluated the model in three classification setups:
 3. **Attack-Type**: Detailed attack types (e.g., MITM, DDoS)
 
 ---
+
+Tentu. Berikut penjelasan terperinci untuk bagian **3.4 Online Learning Workflow**:
+
+---
+
+## 🔄 **3.4 Online Learning Workflow – Penjelasan Lengkap**
+
+Bagian ini menjelaskan bagaimana sistem Intrusion Detection berbasis **online learning** beroperasi dalam lingkungan **streaming data**, yang meniru kondisi dunia nyata seperti lalu lintas IoMT (Internet of Medical Things) secara real time.
+
+Metodologi ini **tidak menggunakan batch learning**, melainkan memproses **satu instance data setiap kali**, mengikuti urutan langkah-langkah berikut:
+
+---
+
+### 🔁 **Langkah-langkah dalam Streaming Learning**
+
+1. **Retrieve Instance (Input Baru):**
+   Sistem menerima satu instance data dari aliran dataset CICIoMT2024 (berformat dictionary). Ini meniru lalu lintas data aktual yang datang secara bertahap.
+
+2. **Prediction by HAT Model:**
+   Model **Hoeffding Adaptive Tree (HAT)** memproses fitur dari instance tersebut dan memberikan prediksi kelas (binary atau multiclass) secara instan.
+
+3. **Evaluate Prediction (Compare True vs. Predicted):**
+   Prediksi yang dihasilkan dibandingkan dengan label sebenarnya untuk mengetahui apakah hasilnya benar atau salah.
+
+4. **Update Drift Detector (ADWIN):**
+   Informasi tentang **akurasi prediksi** (benar/salah) dikirim ke ADWIN.
+
+   * ADWIN memperbarui dua jendela ($W_0$ dan $W_1$) dan menghitung apakah perbedaan rata-rata error cukup signifikan untuk menyatakan **drift** telah terjadi.
+
+5. **Detect Drift (Log if True):**
+   Jika perbedaan antara dua jendela melebihi ambang batas statistik (berdasarkan Hoeffding Bound), **drift terdeteksi**, dan indeks instance tersebut dicatat bersama timestamp-nya.
+
+6. **Model Update (Learning):**
+   Apapun hasil prediksi, HAT selalu diperbarui menggunakan metode `learn_one()` dari library **River**.
+
+   * Ini memastikan bahwa model belajar secara kontinu dari data baru.
+
+7. **Log Metrics (Accuracy, Precision, etc.):**
+   Setelah memproses satu instance, sistem menghitung dan menyimpan metrik performa:
+
+   * **Accuracy**, **Precision**, **Recall**, dan **F1-score**
+   * Hal ini dilakukan **per instance**, bukan per batch, untuk memonitor tren perubahan performa dengan sangat detail.
+
+---
+
+### 🔍 **Kelebihan dari Proses Ini**
+
+* **Adaptif:** Model menyesuaikan dengan perubahan data seiring waktu (konsep drift).
+* **Real-time:** Tidak perlu menunggu batch data selesai.
+* **Ringan:** Cocok untuk IoMT atau sistem real-time dengan keterbatasan sumber daya.
+
+---
+
+Jika Anda menginginkan, saya dapat bantu membuat pseudocode atau visual (diagram alir) untuk menjelaskan proses 3.4 ini secara grafis—seperti yang biasa ada di bagian *Algorithm 1* pada jurnal IEEE.
+
+Ingin saya bantu lanjutkan visualisasinya?
